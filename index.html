@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unipi Technology — Industrial Automation Hardware</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#"><img src="assets/unipi.svg" alt="Unipi Technology" class="nav-logo-img"></a>
+    <ul class="nav-links">
+      <li><a href="#why">Why Unipi</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#odm">OEM / ODM</a></li>
+      <li><a href="#eco">Ecosystem</a></li>
+      <li><a href="#references">Reference</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content wrap">
+
+    <div class="eyebrow">Industrial Automation Hardware</div>
+
+    <div class="hero-grid">
+
+      <!-- LEFT: copy -->
+      <div class="hero-left">
+        <h1>The <em>open platform</em><br>for builders<br>who move fast.</h1>
+        <p class="hero-lead">Enterprise-grade PLC hardware without the enterprise overhead. Unipi gives SME integrators, OEMs, and startups the building blocks to deliver complete automation projects — globally.</p>
+        <div class="btns">
+          <a href="#products" class="btn-p">Explore hardware</a>
+          <a href="#how" class="btn-g">How it works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">65<em>+</em></div>
+            <div class="stat-label">Countries deployed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10<em>k+</em></div>
+            <div class="stat-label">Projects completed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3<em>yr</em></div>
+            <div class="stat-label">Patron warranty</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">20<em>+</em></div>
+            <div class="stat-label">Units ODM minimum</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: 3D viewer -->
+      <div class="hero-3d" id="hero-3d">
+        <canvas id="stl-canvas"></canvas>
+        <div class="stl-loading" id="stl-loading">Loading 3D model…</div>
+      </div>
+
+    </div><!-- /hero-grid -->
+  </div>
+</section>
+
+<!-- LOGOBAR -->
+<div class="logobar">
+  <div class="logobar-inner wrap">
+    <div class="lb-label">Deployed in</div>
+    <div class="lb-track">
+      <div class="lb-items" id="lb-items">
+        <span class="lb-item">Smart Buildings</span>
+        <span class="lb-item">HVAC Control</span>
+        <span class="lb-item">Solar &amp; FV Plants</span>
+        <span class="lb-item">Data Centers</span>
+        <span class="lb-item">Hospitals</span>
+        <span class="lb-item">Industrial IoT</span>
+        <span class="lb-item">SCADA Systems</span>
+        <span class="lb-item">Manufacturing</span>
+        <!-- duplicated for seamless loop -->
+        <span class="lb-item">Smart Buildings</span>
+        <span class="lb-item">HVAC Control</span>
+        <span class="lb-item">Solar &amp; FV Plants</span>
+        <span class="lb-item">Data Centers</span>
+        <span class="lb-item">Hospitals</span>
+        <span class="lb-item">Industrial IoT</span>
+        <span class="lb-item">SCADA Systems</span>
+        <span class="lb-item">Manufacturing</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="s why" id="why">
+  <div class="s-inner wrap">
+    <div class="s-eye">Why Unipi</div>
+    <h2 class="s-title">Built for integrators<br>that Big ones ignores.</h2>
+    <p class="s-sub">Major vendors have a minimum order. We don't. Whether you're deploying 5 units or 500, you get the same hardware quality, open software compatibility, and direct support.</p>
+    <div class="why-grid">
+      <div class="wc">
+        <div class="wc-num">01</div>
+        <h3>No vendor lock-in</h3>
+        <p>Our controllers run Linux and support Node-RED, Home Assistant, CODESYS, Mervis, and any Modbus or BACnet device. Your software partner stays your choice.</p>
+      </div>
+      <div class="wc">
+        <div class="wc-num">02</div>
+        <h3>Small order, full attention</h3>
+        <p>Enterprise automation hardware without the enterprise minimums. We work with startups, pilot projects, and regional integrators — not just Fortune 500 procurement.</p>
+      </div>
+      <div class="wc">
+        <div class="wc-num">03</div>
+        <h3>Complete project support</h3>
+        <p>We connect you with verified software partners for every vertical — BMS, HVAC, industrial SCADA. We supply the hardware; the ecosystem delivers the solution.</p>
+      </div>
+      <div class="wc">
+        <div class="wc-num">04</div>
+        <h3 class="oc">Your brand on our hardware</h3>
+        <p>OEM / ODM from 20 units. Custom RAL color, logo, enclosure. Approximately 15-week lead time. Your product, our manufacturing precision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="s how" id="how">
+  <div class="s-inner wrap">
+    <div class="s-eye">How it works</div>
+    <h2 class="s-title">Simple solution<br>for easy/complex cases.</h2>
+    <p class="s-sub">We don't just sell boxes. We identify the right software stack for your challenge first — then match it to the hardware. Deployment is handled by our certified partner network.</p>
+    <div class="how-grid">
+      <div class="hc">
+        <div class="hc-step">Step 01</div>
+        <div class="hc-line"></div>
+        <h4>You bring the problem</h4>
+        <p>Tell us your application — BMS, HVAC, industrial IoT, startup product. We listen before we spec anything.</p>
+        <span class="hc-tag tag-us">Unipi</span>
+      </div>
+      <div class="hc">
+        <div class="hc-step">Step 02</div>
+        <div class="hc-line"></div>
+        <h4>We identify the software</h4>
+        <p>We map your requirements to the right software stack and connect you with the best integrator partner for your vertical.</p>
+        <span class="hc-tag tag-us">Unipi</span>
+      </div>
+      <div class="hc">
+        <div class="hc-step">Step 03</div>
+        <div class="hc-line"></div>
+        <h4>We match the hardware</h4>
+        <p>The software drives the hardware selection. We specify the right controller family, I/O count, and connectivity.</p>
+        <span class="hc-tag tag-us">Unipi</span>
+      </div>
+      <div class="hc">
+        <div class="hc-step">Step 04</div>
+        <div class="hc-line"></div>
+        <h4>Partner installs &amp; commissions</h4>
+        <p>Our certified software partner handles on-site installation, commissioning, and ongoing support. We ship; they make it work.</p>
+        <span class="hc-tag tag-partner">Partner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="s products" id="products">
+  <div class="s-inner wrap">
+    <div class="s-eye">Hardware portfolio</div>
+    <h2 class="s-title">Controllers for every<br>project scale.</h2>
+    <p class="s-sub">Flagship industrial PLCs to edge gateways — built in Brno, Czech Republic, shipped to 65+ countries.</p>
+    <div class="prod-grid">
+      <div class="pc">
+        <div class="pc-badge">Flagship PLC</div>
+        <h3>Patron</h3>
+        <span class="pc-chip chip-nxp">NXP i.MX 8M Mini</span>
+        <p>High-performance industrial controller for BMS, HVAC, and SCADA. Quad-core 1.8 GHz, 1 GB RAM, 8 GB eMMC. Optional integrated LTE with SMS.</p>
+        <ul class="specs">
+          <li>1.8 GHz quad-core · 1 GB RAM · 8 GB eMMC</li>
+          <li>Optional LTE + SMS modules</li>
+          <li>3-year extended warranty</li>
+        </ul>
+      </div>
+      <div class="pc">
+        <div class="pc-badge">Edge Controller</div>
+        <h3>Edge</h3>
+        <span class="pc-chip chip-rpi">Raspberry Pi CM4</span>
+        <p>New-generation controller for BMS, HVAC, and solar plant management. Hundreds of I/O variants, full Linux stack.</p>
+        <ul class="specs">
+          <li>Raspberry Pi Compute Module 4</li>
+          <li>Node-RED · Mervis · open API</li>
+          <li>Solar &amp; FV plant ready</li>
+        </ul>
+      </div>
+      <div class="pc">
+        <div class="pc-badge">IoT Gateway</div>
+        <h3>Gate</h3>
+        <span class="pc-chip chip-rpi">Linux</span>
+        <p>Programmable Ethernet/RS485 Linux IoT gateway and logic controller for protocol bridging and remote monitoring.</p>
+        <ul class="specs">
+          <li>Ethernet + RS485</li>
+          <li>Linux runtime · Modbus RTU/TCP</li>
+        </ul>
+      </div>
+      <div class="pc">
+        <div class="pc-badge">Expansion &amp; Sensing</div>
+        <h3>Modules &amp; Sensors</h3>
+        <span class="pc-chip chip-rpi">Add-on</span>
+        <p>Extend any Unipi controller with additional I/O via RS485 Modbus RTU. Add temperature or IAQ air quality sensors measuring up to 6 parameters.</p>
+        <ul class="specs">
+          <li>DI, DO, AI, AO extension modules</li>
+          <li>1-Wire + IAQ sensors (CO₂, humidity, VOC…)</li>
+          <li>DIN-rail mountable</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ODM -->
+<section class="s odm" id="odm">
+  <div class="s-inner wrap">
+    <div class="odm-layout">
+      <div class="odm-text">
+        <div class="s-eye">OEM / ODM program</div>
+        <h2 class="s-title">Your brand.<br>Our precision.</h2>
+        <p class="s-sub" style="margin-bottom:0">Put your name on hardware built to the same standard as our own product line. Use the configurator to see it instantly.</p>
+        <div class="odm-items">
+          <div class="odm-item">
+            <div class="odm-n">20</div>
+            <div>
+              <h4>Graphic customisation</h4>
+              <p>Custom RAL color, logo, label. Your product identity on Unipi hardware. From 20 units, ~15 week lead time.</p>
+            </div>
+          </div>
+          <div class="odm-item">
+            <div class="odm-n">100</div>
+            <div>
+              <h4>Hardware modification</h4>
+              <p>Bespoke I/O configuration, enclosure design, connector layout. Full product development from 100 units.</p>
+            </div>
+          </div>
+          <div class="odm-item">
+            <div class="odm-n inf">∞</div>
+            <div>
+              <h4>Startup-friendly</h4>
+              <p>Prototype on standard hardware. Move to ODM as you scale. We grow with you from day one.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn-p" style="margin-top:36px;display:inline-block">Discuss your project</a>
+      </div>
+
+      <!-- CONFIGURATOR -->
+      <div class="cfg">
+        <div class="cfg-canvas-area">
+          <canvas id="cfg-canvas"></canvas>
+          <div class="cfg-loading" id="cfg-loading">Loading image…</div>
+        </div>
+        <div class="cfg-body">
+          <div class="cfg-lbl">Unit color — RAL Classic (~215 colors)</div>
+          <div class="ral-wrap">
+            <div class="ral-grid" id="ral-grid"></div>
+          </div>
+          <div class="cfg-sel" id="cfg-sel">
+            <div class="cfg-sel-dot" id="cfg-sel-dot"></div>
+            <span id="cfg-sel-name">No color selected — showing original</span>
+          </div>
+          <div class="cfg-lbl">Your logo</div>
+          <div class="logo-drop" id="logo-drop">
+            <input type="file" id="logo-inp" accept="image/*">
+            <div class="logo-txt" id="logo-txt">
+              Click or drag to upload logo <strong>(PNG / SVG / JPG)</strong><br>
+              Replaces the Unipi symbol &amp; wordmark
+            </div>
+          </div>
+        </div>
+        <div class="cfg-actions">
+          <button class="btn-dl" id="btn-dl">Download preview</button>
+          <button class="btn-rst" id="btn-rst">Reset</button>
+        </div>
+        <p class="cfg-hint">Preview only — final result depends on print process and material finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section class="s eco" id="eco">
+  <div class="s-inner wrap">
+    <div class="s-eye">Software ecosystem</div>
+    <h2 class="s-title">Open hardware,<br>your software.</h2>
+    <p class="s-sub">We don't sell software. Our hardware runs with the platforms your team already knows — and we connect you with partners who do the rest.</p>
+    <div class="eco-grid">
+      <div class="ec"><div class="ec-icon">M</div><h4>Mervis (IEC 61131-3)</h4><p>Unipi's own SCADA and IDE platform — free with controllers. Full BACnet, Modbus, M-Bus, and IEC 60870-104 support.</p></div>
+      <div class="ec"><div class="ec-icon">NR</div><h4>Node-RED</h4><p>Flow-based rapid prototyping. Ideal for IoT integrations, edge logic, and quick deployments. Native API on all controllers.</p></div>
+      <div class="ec"><div class="ec-icon">HA</div><h4>Home Assistant</h4><p>Local-first smart building control. Perfect for residential and light commercial BMS without cloud dependency.</p></div>
+      <div class="ec"><div class="ec-icon">CS</div><h4>CODESYS</h4><p>Industry-standard IEC 61131-3 runtime on Edge and Patron controllers. Familiar for automation engineers.</p></div>
+      <div class="ec"><div class="ec-icon">D2</div><h4>D2000 / IPESOFT</h4><p>Industrial SCADA and MES for advanced process control and large-scale monitoring across manufacturing and utilities.</p></div>
+      <div class="ec"><div class="ec-icon">API</div><h4>Custom &amp; open API</h4><p>Full REST API, MQTT, and Modbus TCP. Your own software, your own logic. We document everything openly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="s refs" id="references">
+  <div class="s-inner wrap">
+    <div class="s-eye">References</div>
+    <h2 class="s-title">We cooperated<br>on interesting solutions</h2>
+    <p class="s-sub">From startups to industry. Unipi hardware works seamlessly wherever it is needed.</p>
+    <div class="ref-grid" id="ref-grid"></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="s blog" id="blog">
+  <div class="s-inner wrap">
+    <div class="s-eye">News</div>
+    <h2 class="s-title">Important insights,<br>that shape our industry.</h2>
+    <p class="s-sub">Praktické návody, case studies a porovnání — psané inženýry pro inženýry.</p>
+    <div class="blog-grid" id="blog-grid"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-grid"></div>
+  <div class="cta-inner">
+    <h2>Ready to build?</h2>
+    <p>Whether you're scoping a BMS project, launching a product, or need hardware for a pilot — let's talk.</p>
+    <div class="cta-btns">
+      <a href="/cdn-cgi/l/email-protection#42313732322d303602372c2b322b6c3627212a2c2d2e2d253b" class="btn-wh">Contact us</a>
+      <a href="https://forum.unipi.technology" class="btn-wg">Technical forum</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft wrap">
+    <div class="ft-brand">
+      <img src="assets/unipi.svg" alt="Unipi Technology" class="ft-logo-img">
+      <p class="fb-desc">Industrial automation hardware for integrators, OEMs, and builders worldwide. Made in Brno, deployed globally.</p>
+      <div class="fb-addr">Okružní 834/29a, Brno 638 00<br>Czech Republic<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50232520203f222410253e3920397e243533383e3f3c3f3729">[email&#160;protected]</a><br>forum.unipi.technology</div>
+    </div>
+    <div class="fc">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#">Patron PLC</a></li>
+        <li><a href="#">Edge Controller</a></li>
+        <li><a href="#">Gate IoT</a></li>
+        <li><a href="#">Extension Modules</a></li>
+        <li><a href="#">Sensors</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Solutions</h5>
+      <ul>
+        <li><a href="#">Smart Buildings</a></li>
+        <li><a href="#">HVAC Control</a></li>
+        <li><a href="#">Industrial IoT</a></li>
+        <li><a href="#">Solar &amp; FV Plants</a></li>
+        <li><a href="#">OEM / ODM</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Unipi</a></li>
+        <li><a href="https://forum.unipi.technology">Technical forum</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Partner program</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fb-bottom wrap">
+    <div class="fb-copy">© 2025 Unipi Technology s.r.o. — A Faster CZ company · IČ: 09872248</div>
+    <div class="fb-live">Deployed here since 2019</div>
+  </div>
+</footer>
+
+<script src="js/ral.js"></script>
+<script src="js/content.js"></script>
+<script src="js/sections.js"></script>
+<script src="js/configurator.js"></script>
+<script src="js/main.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="js/hero-3d.js"></script>
+</body>
+</html>
