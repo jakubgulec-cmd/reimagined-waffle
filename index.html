@@ -23,13 +23,36 @@
       <li><a href="#blog">Blog</a></li>
       <li><a href="#contact" class="nav-cta">Get in touch</a></li>
     </ul>
+    <button class="nav-search-btn" id="nav-search-btn" aria-label="Search">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M13 13L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
     <button class="nav-burger" id="nav-burger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- SEARCH OVERLAY -->
+<div class="nav-search-overlay" id="nav-search-overlay">
+  <div class="nav-search-overlay-inner">
+    <svg class="nav-search-overlay-icon" viewBox="0 0 20 20" fill="none">
+      <circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M13 13L17 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <input type="search" class="nav-search-overlay-input" id="nav-search-overlay-input" placeholder="Search products, docs, solutions…" autocomplete="off">
+    <button class="nav-search-close" id="nav-search-close" aria-label="Close">
+      <svg viewBox="0 0 20 20" fill="none">
+        <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- HERO + LOGOBAR wrapper -->
+<div class="above-fold">
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
@@ -41,29 +64,11 @@
 
       <!-- LEFT: copy -->
       <div class="hero-left">
-        <h1>The <em>open platform</em><br>for builders<br>who move fast.</h1>
+        <h1><em>Platform</em> for projects that<br> moves fast.</h1>
         <p class="hero-lead">Enterprise-grade PLC hardware without the enterprise overhead. Unipi gives SME integrators, OEMs, and startups the building blocks to deliver complete automation projects — globally.</p>
         <div class="btns">
           <a href="#products" class="btn-p">Explore hardware</a>
           <a href="#how" class="btn-g">How it works</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">65<em>+</em></div>
-            <div class="stat-label">Countries deployed</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">10<em>k+</em></div>
-            <div class="stat-label">Projects completed</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">3<em>yr</em></div>
-            <div class="stat-label">Patron warranty</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">20<em>+</em></div>
-            <div class="stat-label">Units ODM minimum</div>
-          </div>
         </div>
       </div>
 
@@ -74,7 +79,27 @@
       </div>
 
     </div><!-- /hero-grid -->
-  </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">65<em>+</em></div>
+        <div class="stat-label">Countries deployed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10<em>k+</em></div>
+        <div class="stat-label">Projects completed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3<em>yr</em></div>
+        <div class="stat-label">Patron warranty</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">20<em>+</em></div>
+        <div class="stat-label">Units ODM minimum</div>
+      </div>
+    </div>
+
+  </div><!-- /hero-content -->
 </section>
 
 <!-- LOGOBAR -->
@@ -104,6 +129,7 @@
     </div>
   </div>
 </div>
+</div><!-- /above-fold -->
 
 <!-- WHY -->
 <section class="s why" id="why">
@@ -301,7 +327,7 @@
 <section class="s eco" id="eco">
   <div class="s-inner wrap">
     <div class="s-eye">Software ecosystem</div>
-    <h2 class="s-title">Open hardware,<br>your software.</h2>
+    <h2 class="s-title">Quality hardware,<br>your software.</h2>
     <p class="s-sub">We don't sell software. Our hardware runs with the platforms your team already knows — and we connect you with partners who do the rest.</p>
     <div class="eco-grid">
       <div class="ec"><div class="ec-icon">M</div><h4>Mervis (IEC 61131-3)</h4><p>Unipi's own SCADA and IDE platform — free with controllers. Full BACnet, Modbus, M-Bus, and IEC 60870-104 support.</p></div>
@@ -397,6 +423,32 @@
 <script src="js/sections.js"></script>
 <script src="js/configurator.js"></script>
 <script src="js/main.js"></script>
+<script>
+  (function() {
+    var btn = document.getElementById('nav-search-btn');
+    var overlay = document.getElementById('nav-search-overlay');
+    var input = document.getElementById('nav-search-overlay-input');
+    var close = document.getElementById('nav-search-close');
+    function openSearch() {
+      overlay.classList.add('open');
+      setTimeout(function(){ input.focus(); }, 50);
+    }
+    function closeSearch() {
+      overlay.classList.remove('open');
+      input.value = '';
+    }
+    btn.addEventListener('click', openSearch);
+    close.addEventListener('click', closeSearch);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSearch();
+    });
+    document.addEventListener('click', function(e) {
+      if (overlay.classList.contains('open') && !overlay.contains(e.target) && e.target !== btn) {
+        closeSearch();
+      }
+    });
+  })();
+</script>
 <script type="importmap">
 {
   "imports": {
