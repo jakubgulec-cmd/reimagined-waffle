@@ -37,15 +37,15 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 
   /* ── Camera ── */
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 1000);
-  camera.position.set(-0.2, 0, 9);
+  camera.position.set(-1, 0.4, 8);
 
   /* ── Scene ── */
   const scene = new THREE.Scene();
 
-  const ambient = new THREE.AmbientLight(0xd9e2f3, 0.7);
+  const ambient = new THREE.AmbientLight(0xd9e2f3, 2);
   scene.add(ambient);
 
-  const keyLight = new THREE.DirectionalLight(0x6aafff, 2.2);
+  const keyLight = new THREE.DirectionalLight(0x6aafff, 8);
   keyLight.position.set(-3, 4, 5);
   keyLight.castShadow = true;
   scene.add(keyLight);

@@ -9,18 +9,19 @@
   'use strict';
 
   /* ── DOM refs ── */
-  const canvas    = document.getElementById('cfg-canvas');
-  const ctx       = canvas.getContext('2d');
-  const loading   = document.getElementById('cfg-loading');
-  const ralGrid   = document.getElementById('ral-grid');
-  const selDot    = document.getElementById('cfg-sel-dot');
-  const selName   = document.getElementById('cfg-sel-name');
-  const cfgSel    = document.getElementById('cfg-sel');
-  const logoInp   = document.getElementById('logo-inp');
-  const logoDrop  = document.getElementById('logo-drop');
-  const logoTxt   = document.getElementById('logo-txt');
-  const btnDl     = document.getElementById('btn-dl');
-  const btnRst    = document.getElementById('btn-rst');
+  const canvas      = document.getElementById('cfg-canvas');
+  const ctx         = canvas.getContext('2d');
+  const loading     = document.getElementById('cfg-loading');
+  const ralGrid     = document.getElementById('ral-grid');
+  const selDot      = document.getElementById('cfg-sel-dot');
+  const selName     = document.getElementById('cfg-sel-name');
+  const cfgSel      = document.getElementById('cfg-sel');
+  const logoInp     = document.getElementById('logo-inp');
+  const logoDrop    = document.getElementById('logo-drop');
+  const logoTxt     = document.getElementById('logo-txt');
+  const btnDl       = document.getElementById('btn-dl');
+  const btnRst      = document.getElementById('btn-rst');
+  const canvasArea  = document.querySelector('.cfg-canvas-area');
 
   /* ── State ── */
   let curHex  = null;   // selected RAL hex
@@ -68,10 +69,43 @@
     selDot.style.background   = ral.h;
     selDot.style.display      = 'block';
     selName.textContent       = ral.n + '  ' + ral.h;
+    updateCanvasBg(curHex);
     render();
   }
 
-  /* ── Colour helpers ── */
+  /* ── Canvas background — switches between light/dark based on selected colour luminance ── */
+  function luminance(hex) {
+    /* Relative luminance per WCAG (0 = black, 1 = white) */
+    var rgb = [
+      parseInt(hex.slice(1,3), 16) / 255,
+      parseInt(hex.slice(3,5), 16) / 255,
+      parseInt(hex.slice(5,7), 16) / 255
+    ].map(function (c) {
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+  }
+
+  function updateCanvasBg(hex) {
+    if (!canvasArea) return;
+    if (hex === null) {
+      /* No colour selected — use neutral light background */
+      canvasArea.classList.remove('cfg-bg-dark');
+      canvasArea.classList.add('cfg-bg-light');
+      return;
+    }
+    /* Light colour → dark background; dark colour → light background */
+    var lum = luminance(hex);
+    if (lum > 0.25) {
+      canvasArea.classList.remove('cfg-bg-light');
+      canvasArea.classList.add('cfg-bg-dark');
+    } else {
+      canvasArea.classList.remove('cfg-bg-dark');
+      canvasArea.classList.add('cfg-bg-light');
+    }
+  }
+
+
   function hexToHsl(hex) {
     var r = parseInt(hex.slice(1,3),16)/255,
         g = parseInt(hex.slice(3,5),16)/255,
@@ -105,8 +139,21 @@
   }
 
   /* ── Main render ── */
+  /* Background colours matching CSS tokens:
+     --bg2 = #EBF1F9  (light, default)
+     dark  = #1a2b3d  (dark, for light-coloured enclosures) */
+  var BG_LIGHT = '#EBF1F9';
+  var BG_DARK  = '#1a2b3d';
+
+  function getCanvasBgColor() {
+    if (curHex === null) return BG_LIGHT;
+    return luminance(curHex) > 0.25 ? BG_DARK : BG_LIGHT;
+  }
+
   function render() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    /* Fill background first so transparent PNG pixels show the right colour */
+    ctx.fillStyle = getCanvasBgColor();
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0);
 
     if (curHex) recolorBlue(curHex);
@@ -222,6 +269,7 @@
     selDot.style.display = 'none';
     selName.textContent  = 'No color selected — showing original';
     logoTxt.innerHTML    = 'Click or drag to upload logo <strong>(PNG / SVG / JPG)</strong><br>Replaces the Unipi symbol &amp; wordmark';
+    updateCanvasBg(null);
     render();
   }
 
